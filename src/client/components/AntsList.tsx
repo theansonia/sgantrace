@@ -53,7 +53,7 @@ export const AntsList = ({ ants }: RootObject): JSX.Element => {
   }, [allOdds]);
 
   return (
-    <div>
+    <>
       <div className='ant-list'>
         {ants.ants &&
           allAnts.ants.map((ant, index) => {
@@ -67,8 +67,10 @@ export const AntsList = ({ ants }: RootObject): JSX.Element => {
               />
             );
           })}
-        <button onClick={handleGetAllOdds}>Get All odds</button>
       </div>
-    </div>
+      <button className='btn' id='get-all' onClick={handleGetAllOdds}>
+        Get All odds
+      </button>
+    </>
   );
 };
