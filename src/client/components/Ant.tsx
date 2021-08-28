@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { AntColor } from '../pages/AntsPage';
-import ant from './ant.svg';
 import { ReactComponent as AntPic } from './ant.svg';
 
 import { generateAntWinLikelihoodCalculator } from '../utils/generateAntWinLikelihoodCalculator';
@@ -36,6 +35,7 @@ export const Ant = ({ ant, loading, odds, hasRun }: AntProps): JSX.Element => {
   useEffect(() => {
     if (individualOdds) setLocalLoading(false);
   }, [individualOdds]);
+
   return (
     <>
       {ant && (

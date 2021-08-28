@@ -1,8 +1,7 @@
 import { RootObject } from '../pages/AntsPage';
+import { useState, useEffect } from 'react';
 import { Ant } from './Ant';
 import { generateAntWinLikelihoodCalculator } from '../utils/generateAntWinLikelihoodCalculator';
-import { useState } from 'react';
-import { useEffect } from 'react';
 
 export const AntsList = ({ ants }: RootObject): JSX.Element => {
   const [allOdds, setAllOdds] = useState<[number, string][] | []>([]);

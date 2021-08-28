@@ -1,7 +1,8 @@
 import { useQuery } from '@apollo/client';
 import { QueryResult } from '@apollo/react-hooks';
+import { AntLoading } from '../components/AntLoading';
 import { AntsList } from '../components/AntsList';
-// import { Loader } from '../components/Loader';
+import { Error } from '../components/Error';
 import { ALL_ANTS } from '../queries/ALL_ANTS';
 
 export type AntColor = 'BLACK' | 'RED' | 'SILVER';
@@ -21,10 +22,11 @@ export interface RootObject {
 }
 
 export const AntsPage = (): JSX.Element => {
-  const { loading, error, data }: QueryResult<AntTypes> = useQuery(ALL_ANTS);
+  const { data, error, loading }: QueryResult<AntTypes> = useQuery(ALL_ANTS);
 
-  if (error) return <p>Error :(</p>;
-  if (loading) return <p>...Loading</p>;
+  if (error) return <Error />;
+
+  if (loading) return <AntLoading />;
 
   return <>{data && <AntsList ants={data} />}</>;
 };
