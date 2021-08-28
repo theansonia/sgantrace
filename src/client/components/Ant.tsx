@@ -17,9 +17,16 @@ export interface AntProps {
   odds?: number;
   hasRun?: boolean;
   loading: boolean;
+  onUpdateAllOdds: (odds: number, name: string) => void;
 }
 
-export const Ant = ({ ant, loading, odds, hasRun }: AntProps): JSX.Element => {
+export const Ant = ({
+  ant,
+  loading,
+  odds,
+  hasRun,
+  onUpdateAllOdds,
+}: AntProps): JSX.Element => {
   const [individualOdds, setIndividualOdds] = useState<number>();
   const [localLoading, setLocalLoading] = useState(false);
 
@@ -28,6 +35,7 @@ export const Ant = ({ ant, loading, odds, hasRun }: AntProps): JSX.Element => {
     const oddsPack = generateAntWinLikelihoodCalculator();
     oddsPack((arg: number): number => {
       setIndividualOdds(arg);
+      onUpdateAllOdds(arg, ant.name);
       return arg;
     });
   };
@@ -85,7 +93,7 @@ export const Ant = ({ ant, loading, odds, hasRun }: AntProps): JSX.Element => {
                 {odds && !loading && hasRun && !localLoading && (
                   <span className='value'>Calculated: {odds}%</span>
                 )}
-                {!odds && !loading && !hasRun && individualOdds && (
+                {!loading && !hasRun && individualOdds && (
                   <span>
                     {Math.round(parseFloat((individualOdds * 100).toString()))}%
                   </span>

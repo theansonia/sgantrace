@@ -9,6 +9,12 @@ export const AntsList = ({ ants }: RootObject): JSX.Element => {
   const [loading, setLoading] = useState(false);
   const [hasRun, setHasRun] = useState(false);
 
+  const updateAllOdds = (odds: number, name: string) =>
+    setAllOdds((prev) => [
+      ...prev,
+      [Math.round(parseFloat((odds * 100).toString())), name],
+    ]);
+
   const handleGetAllOdds = () => {
     setLoading(true);
     setHasRun(true);
@@ -63,6 +69,7 @@ export const AntsList = ({ ants }: RootObject): JSX.Element => {
                 loading={allAnts && allAnts.odds[index] ? false : loading}
                 hasRun={hasRun}
                 odds={allAnts && allAnts.odds[index] && allAnts.odds[index][0]}
+                onUpdateAllOdds={updateAllOdds}
               />
             );
           })}
