@@ -31,6 +31,8 @@ export const Ant = ({
   const [localLoading, setLocalLoading] = useState(false);
 
   const handleGetIndividualOdds = () => {
+    if (odds) return;
+    setIndividualOdds(undefined);
     setLocalLoading(true);
     const oddsPack = generateAntWinLikelihoodCalculator();
     oddsPack((arg: number): number => {

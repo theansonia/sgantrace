@@ -12,26 +12,27 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  width: 100%;
+  height: 90vh;
+  width: 100vw;
   background: $white;
   font-family: $font, sans-serif;
 }
 
 .ant-list {
-  min-width: 100%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
   gap: 1rem;
-  margin: 1rem;
+  margin: 2rem;
 }
 .ant {
   border-radius: 4px;
   box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
   background: #ca7c4e;
+  flex: 1;
   background: -webkit-linear-gradient(
     bottom left,
     $secondary 0%,
@@ -48,18 +49,27 @@ body {
   width: 8.5rem;
   height: 20rem;
   text-align: center;
+  @media (min-width: 1600px) {
+    height: 90vh;
+  }
 }
 .image {
   position: relative;
   width: 2rem;
   height: 2rem;
   margin: 1rem auto 0 auto;
-  right: 2rem;
+  right: 6rem;
+  flex: 1;
+  @media (min-width: 1600px) {
+    width: 20%;
+  }
 }
+
 svg {
   position: absolute;
   top: 0.25rem;
   right: 0.25rem;
+  flex: 1;
 }
 
 .circle-2 {
@@ -73,6 +83,10 @@ svg {
   border-color: $font transparent $font $font;
   border-radius: 50%;
   transition: all 1.5s ease-in-out;
+  @media (min-width: 1600px) {
+    width: 6rem;
+    height: 6rem;
+  }
   &:hover {
     cursor: pointer;
     transform: rotate(360deg);
@@ -91,7 +105,10 @@ svg {
   border-color: $font $font $font transparent;
   border-radius: 50%;
   transition: all 1.5s ease-in-out;
-
+  @media (min-width: 1600px) {
+    width: 6.1rem;
+    height: 6.1rem;
+  }
   &:hover {
     transform: rotate(-360deg);
   }
@@ -107,6 +124,12 @@ svg {
   text-orientation: upright;
   text-align: left;
   margin-top: 3rem;
+  flex: 1;
+  @media (min-width: 1600px) {
+    font-size: 2rem;
+    height: 80vh;
+    margin-top: 8rem;
+  }
 }
 
 #color {
@@ -118,6 +141,10 @@ svg {
   top: 0.6rem;
   position: absolute;
   left: 2.75rem;
+  @media (min-width: 1600px) {
+    left: 2rem;
+    top: 53.6rem;
+  }
 }
 
 .btn {
@@ -127,12 +154,16 @@ svg {
   margin: 0 auto 10px auto;
   background: $white;
   border: 1px solid $font;
-  border-radius: 15px;
+  border-radius: 4px;
   font-size: 12px;
   font-weight: 600;
   box-sizing: border-box;
   transition: all 0.3s ease-in-out;
   color: $font;
+  @media (min-width: 1600px) {
+    width: 8rem;
+    height: 2rem;
+  }
   &:hover {
     cursor: pointer;
     background: $box;
@@ -144,6 +175,10 @@ svg {
   width: 5rem;
   color: $white;
   background-color: $primary;
+  @media (min-width: 1600px) {
+    width: 8rem;
+    height: 2rem;
+  }
   &:hover {
     background-color: $box;
     color: $primary;
@@ -159,6 +194,9 @@ svg {
   float: right;
   border-radius: 8px;
   border: 4px solid $white;
+  @media (min-width: 1600px) {
+    bottom: 57rem;
+  }
 }
 .stats {
   float: left;
@@ -172,7 +210,9 @@ svg {
   text-align: center;
   padding-top: 28px;
   transition: all 0.4s ease-in-out;
-
+  @media (min-width: 1600px) {
+    height: 12.5rem;
+  }
   &:hover {
     background: $box;
     cursor: pointer;
@@ -191,10 +231,16 @@ span {
 .value {
   font-size: 0.5rem;
   font-weight: 600;
+  @media (min-width: 1600px) {
+    font-size: 1rem;
+  }
 }
 
 .parameter {
   font-size: 11px;
+  @media (min-width: 1600px) {
+    font-size: 0.75rem;
+  }
 }
 
 .container {
@@ -219,6 +265,9 @@ span {
   animation-iteration-count: infinite;
   font-weight: bold;
   color: #d62828;
+  @media (min-width: 1600px) {
+    font-size: 1rem;
+  }
 }
 
 @keyframes bounce {
