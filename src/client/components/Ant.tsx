@@ -51,7 +51,7 @@ export const Ant = ({
       {ant && (
         <div className='ant'>
           <div className='image'>
-            <AntPic />
+            <AntPic style={{ top: '0.75rem', left: '1rem' }} />
             <div className='circle-1'></div>
             <div className='circle-2'></div>
             <div className='btn-wrapper'>

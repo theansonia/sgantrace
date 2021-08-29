@@ -24,10 +24,7 @@ export const AntsList = ({ ants }: RootObject): JSX.Element => {
     allAnts.ants.forEach((ant) => {
       const oddsPack = generateAntWinLikelihoodCalculator();
       oddsPack((arg: number): number => {
-        setAllOdds((prev) => [
-          ...prev,
-          [Math.round(parseFloat((arg * 100).toString())), ant.name],
-        ]);
+        updateAllOdds(arg, ant.name);
         return arg;
       });
     });
